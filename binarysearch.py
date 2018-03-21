@@ -4,7 +4,7 @@ def binary_search(val):
     assert 0 < val < 101, "Val must be between 1-100"
 
     # how many times does 100 need to be halved in a worst-case scenario?
-    # if the number was 30, you'd start with 50
+    # current conditionals are oversimplified: need to store if EACH guess is higher or lower than
 
     guess = 50
     num_guesses = 1  # initialize this first check
