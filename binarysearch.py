@@ -6,17 +6,35 @@ def binary_search(val):
     # how many times does 100 need to be halved in a worst-case scenario?
     # current conditionals are oversimplified: need to store if EACH guess is higher or lower than
 
-    guess = 50
-    num_guesses = 1  # initialize this first check
+    # guess = 50
+    # num_guesses = 1  # initialize this first check
+
+    # while guess != val:
+
+    #     if guess > val:  # if val is smaller than 50:
+    #         guess = guess / 2 # try 25
+    #         num_guesses += 1
+
+    #     else:
+
+    #         guess = guess + guess / 2  # if val is larger than 50, try 75 (add a quarter)
+    #         num_guesses += 1
+    
+    num_guesses = 0
+
+    # initialize the bounds of the val to determine how to halve
+    higher_than = 0
+    lower_than = 101
+    guess = None
 
     while guess != val:
+        num_guesses += 1
+        guess = (lower_than - higher_than) / 2 + higher_than  # 0 - 101 / 2 + 101 = 50.5
 
-        if guess > val:  # if val is smaller than 50:
-            guess = guess / 2 # try 25
-            num_guesses += 1
+    if val > guess:
+        higher_than = guess
 
-        else:
-            guess = guess + guess / 2  # if val is larger than 50, try 75 (add a quarter)
-            num_guesses += 1
-    
+    if val < guess:
+        lower_than = guess
+
     return num_guesses
