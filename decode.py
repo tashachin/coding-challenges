@@ -6,3 +6,12 @@ def decode(s):
 
     # will need to store ints as slice starts. grab by index?
     # at end, need to concatenate all valid letters
+
+    slice_indices = []
+
+    i = 0
+
+    while i < len(s):
+        if s[i].isdigit():
+            slice_indices.append(i)
+    
