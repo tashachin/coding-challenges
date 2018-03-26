@@ -7,12 +7,26 @@ def decode(s):
     # will need to store ints as slice starts. grab by index?
     # at end, need to concatenate all valid letters
 
-    slice_indices = []
+    # slice_indices = []
+
+    # i = 0
+
+    # for i in range(len(s)):
+    #     if s[i].isdigit():
+    #         slice_indices.append(i)
+
+    word = ""  # init empty str
 
     i = 0
 
-    for i in range(len(s)):
-        if s[i].isdigit():
-            slice_indices.append(i)
+    while i < len(s):
+        num_to_skip = int(s[i])
+        i += num_to_skip + 1
 
-    
+        word += s[i]
+
+        i += 1
+
+    return word
+
+print decode("0t3jsme1hs0t")  # 'test'
