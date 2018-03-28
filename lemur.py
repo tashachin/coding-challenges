@@ -27,3 +27,10 @@ def  lemur(branches):
     # if the pattern goes 0, 1, 0, 1 the dead branches add one hop
     # if the pattern goes 0, 1, 0, 0, 1, the dead branches double the hops
     # How do I check for both cases?
+    # HINT: Involves loops and lists.
+
+    if len(branches) < 2:  # If she's already where she needs to be, return zero jumps
+        return 0
+
+    if 1 not in set(branches):  # Let's handle our simplest case where no dead branches are involved
+        return len(branches) / 2
