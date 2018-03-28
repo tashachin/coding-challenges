@@ -7,8 +7,8 @@ def spoonerize(words):
     first_word = words[0]
     second_word = words[1]
 
-    spooned_words.append(first_word[0] + second_word[1:])
     spooned_words.append(second_word[0] + first_word[1:])
+    spooned_words.append(first_word[0] + second_word[1:])
     
     return (" ").join(spooned_words)
 
