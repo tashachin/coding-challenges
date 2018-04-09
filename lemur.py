@@ -31,6 +31,7 @@ def  lemur(branches):
 
     if len(branches) < 2:  # If she's already where she needs to be, return zero jumps
         return 0
-
-    if 1 not in set(branches):  # Let's handle our simplest case where no dead branches are involved
+    
+    # Let's handle our simplest case where no dead branches are involved
+    if 1 not in set(branches):  # I'm looking in a set because that's O(1)
         return len(branches) / 2
