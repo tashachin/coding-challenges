@@ -10,18 +10,19 @@ def reduce_string(string):
     # problem becomes trying to index out
     # do i need to solve this recursively?
 
-    valid_string = []
-
+    valid_string = ''
+    
     for i in range(len(string)):
-        if string[i] != "e":
-            valid_string.append(string[i])
+        # in the case that the letter IS an e, we check that the letter before is not an e before appending
+        if string[i] != "e" or (i > 0 and string[i-1]) != "e":
+            valid_string += string[i]
 
-        else:
-            # in the case that the letter IS an e, we check that the letter before is not an e before appending
-            if string[i-1] != "e":
-                valid_string.append(string[i])
+        # else:
+        #     # in the case that the letter IS an e, we check that the letter before is not an e before appending
+        #     if string[i-1] != "e":
+        #         valid_string.append(string[i])
 
-    return "".join(valid_string)
+    return valid_string
 
 if __name__ == "__main__":
     import doctest
