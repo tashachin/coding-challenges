@@ -18,7 +18,7 @@ def sum_even_fibonacci(max_term):
 def fibonacci(max_term):
     """Calculate fibonacci WITHOUT recursion."""
 
-    fibs = [0,1]
+    fibs = [0, 1]
 
     while True:
         new_fib = fibs[-1] + fibs[-2]
@@ -26,17 +26,9 @@ def fibonacci(max_term):
         if new_fib > max_term:
             break
 
-    return fibs
+        fibs.append(new_fib)
 
-# def find_fib_term(n):
-#     """Do fibonacci() recursively."""
-#     print n
-#     if n == 0:
-#         return 0
-#     elif n == 1:
-#         return 1
-#     else:
-#         return find_fib_term(n - 1) + find_fib_term(n - 2)
+    return fibs
 
 print sum_even_fibonacci(4000000)
 
