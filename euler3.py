@@ -5,56 +5,54 @@
 and that can only be divided by 1 and itself
 """
 
+import math
+
 def find_prime_factors(num):
     """Returns a list of all the factors for a given num that are prime.
 
     >>> find_prime_factors(25)
     [5]
 
-    >>> find_prime_factors(37)
-    [37]
-    """
+    >>> find_prime_factors(20)
+    [2, 5]
 
-    # get a list of all factors
-    factors = find_factors(num)
-
-    # filter out the non-primes 
-    factors = filter(
-        lambda x: is_prime(x), factors
-    )
-
-    # hack to return self if the number itself is prime
-    return factors or [num]
-
-def find_factors(num):
-    """
-    >>> find_factors(25)
-    [5]
-
-    >>> find_factors(11)
-    []
+    # >>> find_prime_factors(37)
+    # [37]
     """
 
     # range params exclude 1 and num. check for empty list later.
-    factors = [i for i in range(2, num) if num % i == 0]
+    # factors = [i for i in range(2, num) if num % i == 0]
+    factors = []
+
+    if num % 2 == 0:
+        factors.append(2)
+        num = num / 2
+
+    # i all odd nums after 1, typecast to avoid floats
+    # range is stop exclusive
+    # step by 2 to avoid evens
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        while num % i == 0:
+            factors.append(i)
+            num = num / i
 
     return factors
 
-def is_prime(num):
-    """
-    >>> is_prime(7)
-    True
+# def is_prime(num):
+#     """
+#     >>> is_prime(7)
+#     True
 
-    >>> is_prime(25)
-    False
-    """
+#     >>> is_prime(25)
+#     False
+#     """
     
-    if find_factors(num):
-        return False
+#     if find_factors(num):
+#         return False
 
-    return True
+#     return True
 
-print find_prime_factors(600851475143)
+# print find_prime_factors(600851475143)
 
 if __name__ == "__main__":
     import doctest
