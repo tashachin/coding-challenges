@@ -11,13 +11,13 @@ def find_prime_factors(num):
     """Returns a list of all the factors for a given num that are prime.
 
     >>> find_prime_factors(25)
-    [5]
+    5
 
     >>> find_prime_factors(20)
-    [2, 5]
+    5
 
-    # >>> find_prime_factors(37)
-    # [37]
+    >>> find_prime_factors(37)
+    37
     """
 
     # range params exclude 1 and num. check for empty list later.
@@ -27,16 +27,24 @@ def find_prime_factors(num):
     if num % 2 == 0:
         factors.append(2)
         num = num / 2
+        # print factors, "after 2 logic"
 
+def alter_range():
+    pass
     # i all odd nums after 1, typecast to avoid floats
     # range is stop exclusive
     # step by 2 to avoid evens
-    for i in range(3, int(math.sqrt(num)) + 1, 2):
+    for i in range(3, num + 1, 2):
+        # print i, "in for loop"
         while num % i == 0:
             factors.append(i)
             num = num / i
 
-    return factors
+    # print factors
+
+    return max(factors)
+
+# print find_prime_factors(600851475143)
 
 # def is_prime(num):
 #     """
