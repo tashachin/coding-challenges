@@ -41,3 +41,4 @@ def first_duplicate(a):
     return min_num
 
 # Current solution does not pass runtime for all test cases on codefights.
+# Brute force approach is O(n^2)
