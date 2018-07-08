@@ -42,3 +42,20 @@ def first_duplicate(a):
 
 # Current solution does not pass runtime for all test cases on codefights.
 # Brute force approach is O(n^2)
+# Would using a dictionary improve lookup time? Space?
+
+def greedy_first_duplicate(a):
+
+    num_counts = {}
+
+    min_num = -1
+    min_index = len(a)
+
+    for i in xrange(len(a)):
+        num_counts[a[i]] = num_counts.get(a[i], 0) + 1
+
+        if num_counts[a[i]] > 1 and i < min_index:
+            min_index = i
+            min_num = a[i]
+
+    return min_num
